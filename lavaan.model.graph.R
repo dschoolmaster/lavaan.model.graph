@@ -49,12 +49,12 @@ if(nlat>0)for(i in 1:nlat)lats[i,]<-strsplit(new.mod[i+neqn+ncor],"=~")[[1]]
 if(neqn!=0)for(i in 1:neqn){
       eqns1[i,1]<-eqns[i,1]
       #remove all pre-multiplied stuff
-      foo<-strsplit(lats[i,2],"\\+")[[1]]
+      foo<-strsplit(eqns[i,2],"\\+")[[1]]
       foo1<-strsplit(foo,"\\*")
       len<-sapply(foo1,length)
       eqn.new<-NULL
       for(j in 1:length(len))eqn.new[j]<-foo1[[j]][len[j]]
-      lats[i,2]<-paste(eqn.new,collapse = "+")
+      eqns[i,2]<-paste(eqn.new,collapse = "+")
       if(!is.null(categorical)){       
                  rhs<-strsplit(eqns[i,2],"\\+")[[1]]
                  for(j in 1:length(categorical)){
