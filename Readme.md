@@ -33,18 +33,19 @@ categorical 	optional list of categorical variables and their levels in form
 a .dot file containing the description of the lavaan model in the dot language and a rendered jpg of the model
 
 #### Examples
-mod='\n
-x3=~1*x2+x12\n
-y=\~x5+x1
-y\~x3+x12
-x12~~NA*x1
+mod='\s
+x3=~1*x2+x12\s
+y=\~x5+x1\s
+y\~x3+x12\s
+x12~~NA\*x1\s
 '
 
 lavaan.model.graph(mod)
 
 mod='
-y1\~x0+x1+x2+z
-z\~x0+x1+x2'
+y1\~x0+x1+x2+z\s
+z\~x0+x1+x2\s
+'
 
 lavaan.model.graph(mod, categorical=list(x=('x0','x1','x2')))
 
